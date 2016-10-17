@@ -1,6 +1,18 @@
-<h1>User login</h1>
-<form action="/user/add_session_login" method="post">
-Username: <input type="text" name="username">
-<br>
-Password: <input type="password" name="password_digest">
-<input type="submit" name="submit">
+<div class="container">
+
+        <div class="card card-container">
+            <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+            <h2 align="center"> Login</h2>
+            <form action="/user/add_session_login" method="post" class="form-signin">
+                <span id="reauth-username" class="reauth-email"></span>
+                <input type="text" id="inputUsername" name = "username" class="form-control" placeholder="UserName" required autofocus>
+                <input type="password" name = "password_digest" id="inputPassword" class="form-control" placeholder="Password" required>
+
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+            </form><!-- /form -->
+            <a href="/user/forgot" class="forgot-password">
+                Forgot the password?
+            </a>
+        </div><!-- /card-container -->
+    </div><!-- /container -->
+
