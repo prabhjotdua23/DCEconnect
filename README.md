@@ -59,8 +59,8 @@ Flow of events :
                 for all categories where selected == false
                 {
                     if(total_weight[cat] > 100/n
-                    new_cat[i]=cat
-                    count++;
+                    { store all categories with greater weight in new_cat
+                     count++; }
                 }
                 
                 for all categories where selected == true
@@ -79,7 +79,19 @@ Flow of events :
              {
                   if(no_of_selected>min)
                   {
-                      
+                      for all categories where selected == true
+                      {
+                          if(total_weight[cat] < 100/n)
+                          {
+                              count++;
+                              category.selected = false
+                          }
+                      }
+                          
+                    for all categories where selected = true
+                    weight *= (x+count)/x
+                }
+            }           
                 
         
 4. Sort the extracted posts of the pseudo table (pid, final_weight)
