@@ -1,0 +1,16 @@
+<h1> Hello, <%= @u.name %> Choose your Category </h1>
+ <form action="/user/categorys" method="post">
+ 
+    <input type="hidden" name="id" value="<%= @u.id%>">
+    <%@c.each do |a| %>
+        
+        <input type="checkbox" id="test<%=a%>" value="<%=a.id %>"/>
+      	<label for="test<%=a%>"> <%= a.name %> </label>
+      	<br>
+    <% end %>
+    	
+	<input type="submit" name="Go" value="Go">
+    
+</form> 
+
+
