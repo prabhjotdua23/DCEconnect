@@ -25,7 +25,7 @@ class UserController < ApplicationController
         return redirect_to :controller => :user , :action => :signup
     end
 
-    return redirect_to :controller => :user, :action => :welcome
+    return redirect_to :controller => :user, :action => :show
   end
 
   def logout
@@ -54,22 +54,31 @@ class UserController < ApplicationController
         session[:user_id] = user.id
          
     end 
-    return redirect_to :controller => :user , :action => :category  
+    return redirect_to :controller => :user , :action => :category 
   end
 
   def category
     @u = User.find(session[:user_id])
     @c=Category.all
+    #@c.each do |a| 
+     # @u.categories << a
+      #@u.save
+    #end
+
   end
 
   def categorys
     #for categories
-    cids=params[:ids]
+    cids=params[:cid]
     #for user 
-    uid=params[:id]
+   uid=params[:id]
     u=User.find(uid)
-    u.category_ids = cids
-    u.save
+    cids.each do |c|
+      cat = Category.find(c)
+      u.categories << cat
+      u.save
+    end
+
     redirect_to :controller => :user , :action => :show
   end
 
