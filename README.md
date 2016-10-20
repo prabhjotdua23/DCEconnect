@@ -144,9 +144,9 @@
   2. Creation of the second model **Category** with fields *Name, Description* : This model stores all the categories in the system along with their descriptions. The model is created by the command `rails g model categories`. It is then migrated to the database.
 
   3. Linking the Users and Categories :  The **User** model is linked with the **Category** table via a **Has-many-through** association through the **Weight** model, i.e., 
-- User has many Weights; User has many categories through weights. 
-- Categories have many weights; Categories have many users through Weights. 
-- Weight belongs to user; Weight belongs to Categories.
+  User has many Weights; User has many categories through weights. 
+  Categories have many weights; Categories have many users through Weights. 
+  Weight belongs to user; Weight belongs to Categories.
   This creates a Many-to-Many relationship between Users and Categories through Weights. 
   The **Weight** model has attributes *Category_id, User_id, Selected, no_of_likes_by_user, no_of_posts_in_category, weight,   total_weight* 
   
