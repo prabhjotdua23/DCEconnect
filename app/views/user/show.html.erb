@@ -1,0 +1,7 @@
+<h1> name: <%=@u.name%> </h1>
+ 
+<% if @u.categories.count > 0 %> 
+      <% @u.categories.each do |category| %> 
+        <%= category.name %> <br>              
+      <% end %>
+<% end %>         
