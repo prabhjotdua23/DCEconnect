@@ -9,10 +9,10 @@
 ### Each post by any user
 
   - create table posts(pid, category, content, title, *media(url)*, likes
-  - create a category table for each category (for easy routing of the "category-sise-posts section
-  - also create a user-category table with primary key category
-  - create category-table(category, no_of_likes_by_user, selected, no_of_posts_in_category, weight(x), total_weight(n))
-  
+  - create a category table for each category (for easy routing of the "category-wise-posts section"
+  - also create a category table with primary key category
+  - create weights table(category_id,user_is, no_of_likes_by_user, selected, no_of_posts_in_category, weight(x), total_weight(n)). (Has-many through relation between user and category table)
+    
 ## Flow of events :
   1. Extraction of posts
   2. Creating pseudo Table
