@@ -21,13 +21,13 @@
   
 #### 1. Extraction of posts
               
-              * on the basis of timestamp, extract posts which are one month/week (to be decided) old and assign weights to                 them. 
-              * Display rest in a reverse chronological order
+   1. On the basis of timestamp, extract posts which are one month/week (to be decided) old and assign weights to                 them. 
+   2. Display rest in a reverse chronological order
               
   
 #### 2. Creating a pseudo Table
     
-              * From the extracted posts, create a pseudo table
+   1. From the extracted posts, create a pseudo table
               
   
 #### 3. Algorithm for assigning weight to extracted posts
@@ -41,77 +41,77 @@
 
    2. After some user interaction with the system
        
-     * change_Weight_Each_Day(category-table.no_of_likes , category-table.no_of_posts)
+     1. change_Weight_Each_Day(category-table.no_of_likes , category-table.no_of_posts)
           
-
             {
-              for each category where selected == true     
+
+             for each category where selected == true     
               {
                 category-table.weight-new = 0.9*category-table.no_of_posts + 0.1*category-table.no_of_likes                                 category-table.weight = 0.8*category-table.weight + 0.2*category-table.weight-new
               }
             }
+
+
+     2. change_total_weight_each_day(category-table.no_of_likes , category-table.no_of_posts)
+
           
+             {
+               for each category :
+                  {
+                    category-table.weight-new = 0.9*category-table.no_of_posts + 0.1*category-table.no_of_likes                                 category-table.weight = 0.8*category-table.weight + 0.2*category-table.weight-new
+                  }
+             } 
 
-     * change_total_weight_each_day(category-table.no_of_likes , category-table.no_of_posts)
-
-          
-           {
-             for each category :
-                {
-                  category-table.weight-new = 0.9*category-table.no_of_posts + 0.1*category-table.no_of_likes                                 category-table.weight = 0.8*category-table.weight + 0.2*category-table.weight-new
-                }
-           } 
+     3. Add/delete category 
            
-     * Add/delete category 
-           
-           {
-             check_Category_every_month
-             
-             Add_category()
+             {
+                check_Category_every_month
 
-                      {   count=0;
-                          for all categories where selected == false
-                          {
-                              if(total_weight[cat] > 100/n
-                              { 
-                                store all categories with greater weight in new_cat
-                                count++; 
-                               }
-                          }
+                Add_category()
 
-                          for all categories where selected == true
-                          {
-                              weight = weight * x/(x+count)
-                          }
-
-                          for all new cat 
-                          {
-                              selected = true
-                              weight = 100/(x+count)
-                          }
-                       }
-
-             Delete_category
-
-            
-                       {
-                            if(no_of_selected>min)
+                        {   count=0;
+                            for all categories where selected == false
                             {
-                                for all categories where selected == true
-                                {
-                                    if(total_weight[cat] < 100/n)
-                                    {
-                                        count++;
-                                        category.selected = false
-                                    }
-                                }
+                                if(total_weight[cat] > 100/n
+                                { 
+                                  store all categories with greater weight in new_cat
+                                  count++; 
+                                 }
+                            }
 
-                              for all categories where selected = true
-                                weight *= (x+count)/x
-                          }
-                      }
-              
-              
+                            for all categories where selected == true
+                            {
+                                weight = weight * x/(x+count)
+                            }
+
+                            for all new cat 
+                            {
+                                selected = true
+                                weight = 100/(x+count)
+                            }
+                         }
+
+               Delete_category
+
+
+                         {
+                              if(no_of_selected>min)
+                              {
+                                  for all categories where selected == true
+                                  {
+                                      if(total_weight[cat] < 100/n)
+                                      {
+                                          count++;
+                                          category.selected = false
+                                      }
+                                  }
+
+                                for all categories where selected = true
+                                  weight *= (x+count)/x
+                            }
+                        }
+
+
 
 #### 4. Sort the extracted posts of the pseudo table (pid, final_weight)
          
