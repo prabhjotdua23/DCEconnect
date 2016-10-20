@@ -136,7 +136,7 @@
 ### Detailed steps for Development
 1. Setting up of rails on Ubuntu Operating System. 
 
-2. Generation of a new project named **dceconnect* with *PostgreSQL** : The default is SQLite but it cannot be hosted on heroku. Hence, the reason of the choice. Created with the command `rails g new dceconnect --database postgresql`
+2. Generation of a new project named **dceconnect** with **PostgreSQL** : The default is SQLite but it cannot be hosted on heroku. Hence, the reason of the choice. Created with the command `rails g new dceconnect --database postgresql`
 
 3. Creation of models
   1. Creation of the first model, **User** with fields *Name, Username, Password (encrypted), Email, Phone, Academic-Year* : This model stores the details of all users in the system. The model is created by the command `rails g model user`. It is then migrated to the database. 
