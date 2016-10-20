@@ -144,12 +144,11 @@
   2. Creation of the second model **Category** with fields *Name, Description* : This model stores all the categories in the system along with their descriptions. The model is created by the command `rails g model categories`. It is then migrated to the database.
 
   3. Linking the Users and Categories :  The **User** model is linked with the **Category** table via a **Has-many-through** association through the **Weight** model, i.e., 
-  - User has many Weights; User has many categories through weights. 
-  - Categories have many weights; Categories have many users through Weights. 
-  - Weight belongs to user; Weight belongs to Categories.
-
-    This creates a Many-to-Many relationship between Users and Categories through Weights. 
-    The **Weight** model has attributes *Category_id, User_id, Selected, no_of_likes_by_user, no_of_posts_in_category, weight, total_weight* 
+- User has many Weights; User has many categories through weights. 
+- Categories have many weights; Categories have many users through Weights. 
+- Weight belongs to user; Weight belongs to Categories.
+  This creates a Many-to-Many relationship between Users and Categories through Weights. 
+  The **Weight** model has attributes *Category_id, User_id, Selected, no_of_likes_by_user, no_of_posts_in_category, weight,   total_weight* 
   
 4. Creation of Controllers
   1. The *user controller* is generated using the command `rails g controller user`. The controller contains various actions to be performed by the controller. The flow of control between the actions of the controller is managed by the routes.rb file which contains the routing information of each action. Views of those actions which are requested from the server (method=get) are made. The views and actions in the order of their creation are :
@@ -165,9 +164,9 @@
     * Login - This action has a view requesting the user to enter the username and password. The details are passed to the Add_session_login action via a form and the details are sent to the server using the post method. 
     
     * Add_session_login -  This action receives the details of the new user, and checks in the database :
-      * If the user exists, and the password matches, the control passes to action welcome 
-      * If the user exists, and the password does not match, the user is prompted to enter the password again. 
-      * If the user does not exist, the user is redirected to action signup.
+      - If the user exists, and the password matches, the control passes to action welcome 
+      - If the user exists, and the password does not match, the user is prompted to enter the password again. 
+      - If the user does not exist, the user is redirected to action signup.
     
 
   
